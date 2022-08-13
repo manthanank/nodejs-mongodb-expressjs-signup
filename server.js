@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path'); 
-var fs = require('fs'); 
-var app = express();
-var mongo = require('mongodb');
-var new_db = "mongodb://localhost:27017/data";
-var bodyParser = require('body-parser');
-var crypto = require('crypto');
+const express = require('express');
+const path = require('path'); 
+const fs = require('fs'); 
+const app = express();
+const mongo = require('mongodb');
+const new_db = "mongodb://localhost:27017/data";
+const bodyParser = require('body-parser');
+const crypto = require('crypto');
 
 require('dotenv').config();
 
@@ -25,9 +25,9 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 	extended: true
 }));
 
-var getHash = ( pass , phone ) => {
+const getHash = ( pass , phone ) => {
 				
-				var hmac = crypto.createHmac('sha512', phone);
+				const hmac = crypto.createHmac('sha512', phone);
 				
 				//passing the data to be hashed
 				data = hmac.update(pass);
@@ -40,14 +40,14 @@ var getHash = ( pass , phone ) => {
 
 // Sign-up function starts here. . .
 app.post('/sign_up' ,function(req,res){
-	var name = req.body.name;
-	var email= req.body.email;
-	var pass = req.body.password;
-		var phone = req.body.phone;
-	var password = getHash( pass , phone ); 				
+	const name = req.body.name;
+	const email= req.body.email;
+	const pass = req.body.password;
+		const phone = req.body.phone;
+	const password = getHash( pass , phone ); 				
 
 	
-	var data = {
+	const data = {
 		"name":name,
 		"email":email,
 		"password": password, 
@@ -74,13 +74,13 @@ app.post('/sign_up' ,function(req,res){
 	return res.redirect('/public/success.html'); 
 	
 	/** 
-	var filePath = path.join(__dirname, 'public/success.html');
-    var stat = fs.statSync(filePath);
+	const filePath = path.join(__dirname, 'public/success.html');
+    const stat = fs.statSync(filePath);
     res.writeHead(200, {
         'Content-Type': 'text/html',
         'Content-Length': stat.size
     });
-    var readStream = fs.createReadStream(filePath);
+    const readStream = fs.createReadStream(filePath);
     // We replaced all the event handlers with a simple call to readStream.pipe()
     readStream.pipe(res);	
 	*/ 
