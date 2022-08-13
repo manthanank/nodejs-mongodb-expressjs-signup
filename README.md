@@ -3,6 +3,15 @@
 Its a simple signup form. Made with mongodb, nodejs and express. 
 
 ---
+
+## Screenshots
+
+![Capture](https://github.com/manthanank/nodejs-signup/blob/master/public/images/screenshot1.png)
+
+
+![Capture](https://github.com/manthanank/nodejs-signup/blob/master/public/images/screenshot2.png)
+
+---
 ## Requirements
 
 For development, you will only need Node.js and a node global package, Yarn, installed in your environement.

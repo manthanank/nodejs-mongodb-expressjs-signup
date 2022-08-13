@@ -6,6 +6,9 @@ var mongo = require('mongodb');
 var new_db = "mongodb://localhost:27017/data";
 var bodyParser = require('body-parser');
 var crypto = require('crypto');
+
+require('dotenv').config();
+
 //Creating the database
 
 app.get('/',function(req,res){
